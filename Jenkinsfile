@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        label "Built-In Node"
+        customWorkspace "/home/ubuntu/DjangoJenkis"
+    }
     stages {
         stage("Build"){
             steps{
