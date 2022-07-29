@@ -11,6 +11,9 @@ pipeline {
                 //     """
                 // }
                 sh """
+                    docker login --username balasriharshach --password Srikrishna7
+                """
+                sh """
                     docker build -t 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1 .
                     """
             }
