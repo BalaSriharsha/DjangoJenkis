@@ -11,8 +11,6 @@ pipeline {
                 //     """
                 // }
                 sh """
-                    cd /home/ubuntu/DjangoJenkis/ &&
-                    pwd
                     docker build -t 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1 .
                     """
             }
