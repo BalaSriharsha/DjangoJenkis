@@ -5,8 +5,9 @@ pipeline {
             steps{
                 scripts{
                     sh """
-                    cd /home/ubuntu/DjangoJenkis/
-                    docker build 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1 .
+                    cd /home/ubuntu/DjangoJenkis/ &&
+                    pwd
+                    docker build -t 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1 .
                     """
                 }
             }
