@@ -9,8 +9,8 @@ pipeline {
             }
         }
         stage("Push"){
-            scripts{
-                steps{
+            steps{
+                scripts{
                     sh 'docker push 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1'
                 }
             }
