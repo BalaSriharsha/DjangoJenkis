@@ -4,7 +4,7 @@ pipeline {
         stage("Build"){
             steps{
                 scripts{
-                    """
+                    sh """
                     cd /home/ubuntu/DjangoJenkis/
                     docker build 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1 .
                     """
@@ -14,7 +14,7 @@ pipeline {
         stage("Push"){
             steps{
                 scripts{
-                    """docker push 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1"""
+                    sh """docker push 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1"""
                 }
             }
         }
