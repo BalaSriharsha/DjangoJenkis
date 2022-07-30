@@ -1,6 +1,30 @@
 pipeline {
     agent any
     stages {
+        stage("Get Parameters"){
+            steps{
+                script{
+                    properties([
+                        parameters([
+                            choice(
+                                choices: ['Fast Build', 'Slow Build']
+                                name: "Type of Build"
+                            ),
+                            booleanParam(
+                                defaultValue: true,
+                                description: "Do you want to build or not?"
+                                name: "Do you want to build or not?"
+                            ),
+                            string(
+                                defaultValue: ''
+                                trim: true
+                                name: "Image tag"
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
         stage("Build"){
             steps{
                 // scripts{
@@ -14,7 +38,7 @@ pipeline {
                     docker login --username balasriharshach --password Srikrishna7
                 """
                 sh """
-                    docker build -t 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:v1 .
+                    docker build -t 282986750202.dkr.ecr.us-east-1.amazonaws.com/djangotest:${env.Image Tag} .
                     """
             }
         }
