@@ -7,17 +7,17 @@ pipeline {
                     properties([
                         parameters([
                             choice(
-                                choices: ['Fast Build', 'Slow Build']
+                                choices: ['Fast Build', 'Slow Build'],
                                 name: "Type of Build"
                             ),
                             booleanParam(
                                 defaultValue: true,
-                                description: "Do you want to build or not?"
+                                description: "Do you want to build or not?",
                                 name: "Do you want to build or not?"
                             ),
                             string(
-                                defaultValue: ''
-                                trim: true
+                                defaultValue: '',
+                                trim: true,
                                 name: "Image tag"
                             )
                         ])
